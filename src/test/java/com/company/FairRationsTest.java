@@ -15,4 +15,10 @@ public class FairRationsTest {
         test(input,4);
     }
 
+    @Test
+    public void test2(){
+        int[] input = new int[]{1,2};
+        test(input,-1);
+    }
+
 }
