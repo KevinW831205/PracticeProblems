@@ -10,7 +10,7 @@ public class FairRations {
             if(B[i]%2 == 1){
                 B[i]++;
                 B[i+1]++;
-                counter++;
+                counter+=2;
             }
         }
 
