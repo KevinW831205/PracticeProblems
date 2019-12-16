@@ -19,7 +19,6 @@ public class Cavity {
 
         for (int i = 1; i < grid.length - 1; i++) {
             String row = grid[i];
-            System.out.println("ROW" +i + " "+row );
             for (int j = 1; j < grid[i].length() - 1; j++) {
                 if (checkSides(grid[i].charAt(j),grid, i, j)){
                     // change to X

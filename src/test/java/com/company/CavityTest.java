@@ -24,5 +24,12 @@ public class CavityTest {
         test(input, expected);
     }
 
+    @Test
+    public void test3(){
+        String[] input = new String[]{"1111", "1991", "1991","1111"};
+        String[] expected = new String[]{"1111","1991","1991","1111"};
+        test(input, expected);
+    }
+
 
 }
