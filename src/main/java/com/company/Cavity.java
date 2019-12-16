@@ -37,8 +37,8 @@ public class Cavity {
     private static boolean checkSides(Character val, String[] grid, int i, int j) {
         int value = (int) val;
         if (
-                (int) grid[i].charAt(j - 1) > value || (int) grid[i].charAt(j + 1) > value ||
-                        (int) grid[i-1].charAt(j) >value || (int) grid[i+1].charAt(j)>value
+                (int) grid[i].charAt(j - 1) >= value || (int) grid[i].charAt(j + 1) >= value ||
+                        (int) grid[i-1].charAt(j) >=value || (int) grid[i+1].charAt(j)>=value
         ) {
             return false;
         }
