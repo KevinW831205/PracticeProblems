@@ -2,6 +2,13 @@ package com.company;
 
 public class Cavity {
 
+    public static void main(String[] args) {
+        String[] res = cavityMap( new String[]{"1112", "1912", "1892","1234"});
+        for(String s : res){
+            System.out.println(s);
+        }
+
+    }
 
     static String[] cavityMap(String[] grid) {
 
@@ -11,13 +18,15 @@ public class Cavity {
         result[0] = grid[0];
 
         for (int i = 1; i < grid.length - 1; i++) {
+            String row = grid[i];
+            System.out.println("ROW" +i + " "+row );
             for (int j = 1; j < grid[i].length() - 1; j++) {
-                String row = grid[i];
                 if (checkSides(grid[i].charAt(j),grid, i, j)){
                     // change to X
                     row = row.substring(0,j) + "X" + row.substring(j+1);
                 }
-                result[j] = row;
+
+                result[i] = row;
             }
         }
         result[grid.length-1] = grid[grid.length-1];
