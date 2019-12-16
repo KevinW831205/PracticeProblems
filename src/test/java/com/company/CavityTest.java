@@ -20,7 +20,7 @@ public class CavityTest {
     @Test
     public void test2() {
         String[] input = new String[]{"1112", "1912", "1892","1234"};
-        String[] expected = new String[]{"11112","1X12","18X2","1234"};
+        String[] expected = new String[]{"1112","1X12","18X2","1234"};
         test(input, expected);
     }
 
