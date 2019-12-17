@@ -23,15 +23,18 @@ public class GridSearch {
                 String sToCheck = row.substring(i,patternWidth+i);
                 System.out.println(sToCheck);
                 if (isEqualRow(sToCheck,p[0])){
-                    boolean rowEqual = true;
+
+                    boolean patternEqual = true;
                     for(int k=0; k<patternHeight; k++){
                         String checkingRow = g[j+k];
-                        if(!isEqualRow(checkingRow.substring(i,patternHeight+i),p[k])){
-                            rowEqual = false;
+                        String insideStringCheck = checkingRow.substring(i,patternWidth+i);
+\
+                        if(!isEqualRow(insideStringCheck,p[k])){
+                            patternEqual = false;
                             break;
                         }
                     }
-                    if(rowEqual){
+                    if(patternEqual){
                         return true;
                     }
                 }
