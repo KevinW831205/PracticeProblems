@@ -17,25 +17,26 @@ public class GridSearch {
         int gridWidth = g[0].length();
         int gridHeight = g.length;
 
+        char patterBegin = p[0].charAt(0);
         for (int j = 0; j <= gridHeight - patternHeight; j++) {
             for (int i = 0; i <= gridWidth - patternWidth; i++) {
                 String row = g[j];
-                String sToCheck = row.substring(i,patternWidth+i);
-                System.out.println(sToCheck);
-                if (isEqualRow(sToCheck,p[0])){
-
-                    boolean patternEqual = true;
-                    for(int k=0; k<patternHeight; k++){
-                        String checkingRow = g[j+k];
-                        String insideStringCheck = checkingRow.substring(i,patternWidth+i);
-
-                        if(!isEqualRow(insideStringCheck,p[k])){
-                            patternEqual = false;
-                            break;
+                if (row.charAt(i) == patterBegin) {
+                    String sToCheck = row.substring(i, patternWidth + i);
+                    System.out.println(sToCheck);
+                    if (isEqualRow(sToCheck, p[0])) {
+                        boolean patternEqual = true;
+                        for (int k = 0; k < patternHeight; k++) {
+                            String checkingRow = g[j + k];
+                            String insideStringCheck = checkingRow.substring(i, patternWidth + i);
+                            if (!isEqualRow(insideStringCheck, p[k])) {
+                                patternEqual = false;
+                                break;
+                            }
                         }
-                    }
-                    if(patternEqual){
-                        return true;
+                        if (patternEqual) {
+                            return true;
+                        }
                     }
                 }
             }
