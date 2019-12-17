@@ -17,13 +17,13 @@ public class GridSearch {
         int gridWidth = g[0].length();
         int gridHeight = g.length;
 
-        for (int j = 0; j <= gridHeight - patternHeight; j++) {
-            for (int i = 0; i <= gridWidth - patternWidth; i++) {
+        for (int j = 0; j < gridHeight - patternHeight; j++) {
+            for (int i = 0; i < gridWidth - patternWidth; i++) {
                 String row = g[j];
-                if (isEqualRow(row.substring(i,patternWidth+i),p[j])){
+                if (isEqualRow(row.substring(i,patternWidth+i),p[0])){
                     for(int k=0; k<patternHeight; k++){
                         String checkingRow = g[j+k];
-                        if(!isEqualRow(checkingRow.substring(i,patternHeight+i),p[j+k])){
+                        if(!isEqualRow(checkingRow.substring(i,patternHeight+i),p[k])){
                             break;
                         }
                     }
