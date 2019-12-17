@@ -14,7 +14,13 @@ public class StonesTest {
     @Test
     public void test1(){
         int[] expected = new int[]{30,120,210,300};
-        test(expected,2,3,4);
+        test(expected,4,10,100);
+    }
+
+    @Test
+    public void test2(){
+        int[] expected = new int[]{2,3,4};
+        test(expected,3,1,2);
     }
 
 
