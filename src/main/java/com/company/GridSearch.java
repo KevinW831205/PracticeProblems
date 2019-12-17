@@ -17,8 +17,8 @@ public class GridSearch {
         int gridWidth = g[0].length();
         int gridHeight = g.length;
 
-        for (int j = 0; j < gridHeight - patternHeight; j++) {
-            for (int i = 0; i < gridWidth - patternWidth; i++) {
+        for (int j = 0; j <= gridHeight - patternHeight; j++) {
+            for (int i = 0; i <= gridWidth - patternWidth; i++) {
                 String row = g[j];
                 String sToCheck = row.substring(i,patternWidth+i);
                 System.out.println(sToCheck);
@@ -28,7 +28,7 @@ public class GridSearch {
                     for(int k=0; k<patternHeight; k++){
                         String checkingRow = g[j+k];
                         String insideStringCheck = checkingRow.substring(i,patternWidth+i);
-\
+
                         if(!isEqualRow(insideStringCheck,p[k])){
                             patternEqual = false;
                             break;
