@@ -8,7 +8,7 @@ public class StonesTest {
 
     public void test(int[] expected, int input1, int input2, int input3){
         int[] input = ManasaAndStones.stones(input1,input2,input3);
-        Assert.assertEquals(expected,input);
+        Assert.assertArrayEquals(expected,input);
     }
 
     @Test
