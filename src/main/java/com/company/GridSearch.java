@@ -20,15 +20,21 @@ public class GridSearch {
         for (int j = 0; j < gridHeight - patternHeight; j++) {
             for (int i = 0; i < gridWidth - patternWidth; i++) {
                 String row = g[j];
-                if (isEqualFirstRow(row.substring(i,patternWidth+i),p[j])){
-
+                if (isEqualRow(row.substring(i,patternWidth+i),p[j])){
+                    for(int k=0; k<patternHeight; k++){
+                        String checkingRow = g[j+k];
+                        if(!isEqualRow(checkingRow.substring(i,patternHeight+i),p[j+k])){
+                            break;
+                        }
+                    }
+                    return true;
                 }
             }
         }
         return false;
     }
 
-    private static boolean isEqualFirstRow(String row1, String row2) {
+    private static boolean isEqualRow(String row1, String row2) {
         return row1.equals(row2);
     }
 
