@@ -20,14 +20,20 @@ public class GridSearch {
         for (int j = 0; j < gridHeight - patternHeight; j++) {
             for (int i = 0; i < gridWidth - patternWidth; i++) {
                 String row = g[j];
-                if (isEqualRow(row.substring(i,patternWidth+i),p[0])){
+                String sToCheck = row.substring(i,patternWidth+i);
+                System.out.println(sToCheck);
+                if (isEqualRow(sToCheck,p[0])){
+                    boolean rowEqual = true;
                     for(int k=0; k<patternHeight; k++){
                         String checkingRow = g[j+k];
                         if(!isEqualRow(checkingRow.substring(i,patternHeight+i),p[k])){
+                            rowEqual = false;
                             break;
                         }
                     }
-                    return true;
+                    if(rowEqual){
+                        return true;
+                    }
                 }
             }
         }
