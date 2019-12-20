@@ -4,8 +4,11 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Animal gs = new GermanShepard();
+        Mammal m = new Mammal();
 
-        ((Animal)gs).speak();
+        m.speak(new Animal());
+
+
+
     }
 }

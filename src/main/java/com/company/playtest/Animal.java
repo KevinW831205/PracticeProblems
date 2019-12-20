@@ -2,7 +2,13 @@ package com.company.playtest;
 
 public class Animal {
 
-    public void speak(){
-        System.out.println("animal");
+    private String name;
+
+    public void speak(Animal a){
+        System.out.println(a.getName());
+    }
+
+    public String getName() {
+        return this.name;
     }
 }
