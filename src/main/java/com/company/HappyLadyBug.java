@@ -16,8 +16,22 @@ public class HappyLadyBug {
             bArr = bList.toArray(new String[0]);
         }
 
-        for (int i = 0; i < bArr.length-1; i++) {
+        if(bArr.length == 1){
+            if(bArr[0] == "_"){
+                return "NO";
+            } else {
+                return "YES";
+            }
+        }
 
+        boolean hasDuplicate = false;
+        String currentCharacter = bArr[0];
+        for (int i = 0; i < bArr.length-1; i++) {
+            if(bArr[i] != currentCharacter){
+
+            } else{
+
+            }
         }
 
         return null;
