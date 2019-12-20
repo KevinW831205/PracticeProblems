@@ -59,5 +59,20 @@ public class HappyLadyBugTest {
         Test("NO", "AABCBC");
     }
 
+    @Test
+    public void test10() {
+        Test("NO", "A__");
+    }
+
+    @Test
+    public void test11() {
+        Test("NO", "A_B_");
+    }
+
+    @Test
+    public void test12() {
+        Test("YES", "VAUGGGGBBYUAYTATY_ZXXZV");
+    }
+
 }
 
