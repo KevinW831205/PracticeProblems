@@ -17,10 +17,10 @@ public class HappyLadyBug {
         }
 
         if(bArr.length == 1){
-            if(bArr[0] == "_"){
-                return "NO";
-            } else {
+            if(bArr[0].equals("_")){
                 return "YES";
+            } else {
+                return "NO";
             }
         }
 
