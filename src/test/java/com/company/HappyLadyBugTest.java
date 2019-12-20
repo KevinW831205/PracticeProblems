@@ -5,55 +5,58 @@ import org.junit.Test;
 
 public class HappyLadyBugTest {
 
-    public void Test(String expected, String input){
+    public void Test(String expected, String input) {
         //given
 
         //when
         String actual = HappyLadyBug.happyLadybugs(input);
 
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void test1(){
-        Test("RBY_YBR", "YES");
+    public void test1() {
+        Test("YES", "RBY_YBR");
     }
 
     @Test
-    public void test2(){
-        Test("X_Y__X", "NO");
+    public void test2() {
+        Test("NO", "X_Y__X");
     }
 
     @Test
-    public void test3(){
-        Test("__", "YES");
+    public void test3() {
+        Test("YES", "__");
     }
 
     @Test
-    public void test4(){
-        Test("B_RRBR", "YES");
+    public void test4() {
+        Test("YES", "B_RRBR");
     }
 
     @Test
-    public void test5(){
-        Test("AABBC", "NO");
-    }
-    @Test
-    public void test6(){
-        Test("AABBC_C", "YES");
-    }
-    @Test
-    public void test7(){
-        Test("_", "YES");
-    }
-    @Test
-    public void test8(){
-        Test("DD__FQ_QQF", "YES");
+    public void test5() {
+        Test("NO", "AABBC");
     }
 
     @Test
-    public void test9(){
-        Test("AABCBC", "NO");
+    public void test6() {
+        Test("YES", "AABBC_C");
+    }
+
+    @Test
+    public void test7() {
+        Test("YES", "_");
+    }
+
+    @Test
+    public void test8() {
+        Test("YES", "DD__FQ_QQF");
+    }
+
+    @Test
+    public void test9() {
+        Test("NO", "AABCBC");
     }
 
 }

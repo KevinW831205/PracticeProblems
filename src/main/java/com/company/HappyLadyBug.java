@@ -26,15 +26,19 @@ public class HappyLadyBug {
 
         boolean hasDuplicate = false;
         String currentCharacter = bArr[0];
-        for (int i = 0; i < bArr.length-1; i++) {
-            if(bArr[i] != currentCharacter){
-
-            } else{
-
+        for (int i = 1; i < bArr.length-1; i++) {
+            if(bArr[i].equals(currentCharacter)){
+               hasDuplicate = true;
+            } else {
+                currentCharacter = bArr[i];
+                hasDuplicate = false;
+                continue;
+            }
+            if(!hasDuplicate){
+                return "NO";
             }
         }
-
-        return null;
+        return "YES";
     }
 
 }
