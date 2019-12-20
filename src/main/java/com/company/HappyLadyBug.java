@@ -39,9 +39,12 @@ public class HappyLadyBug {
                 hasDuplicate = false;
                 continue;
             }
-
         }
-        return "YES";
+
+        if(bArr[bArr.length-1].equals("_") || bArr[bArr.length-1].equals(bArr[bArr.length-2])){
+            return "YES";
+        }
+        return "NO";
     }
 
 }
