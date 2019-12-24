@@ -60,8 +60,23 @@ public class HappyLadyBugTest {
     }
 
     @Test
+<<<<<<< HEAD
     public void test10(){
         Test("NO","A");
+=======
+    public void test10() {
+        Test("NO", "A__");
+    }
+
+    @Test
+    public void test11() {
+        Test("NO", "A_B_");
+    }
+
+    @Test
+    public void test12() {
+        Test("YES", "VAUGGGGBBYUAYTATY_ZXXZV");
+>>>>>>> ad5fb554d05367161d48557f380eb2f1d23482f7
     }
 
 }
