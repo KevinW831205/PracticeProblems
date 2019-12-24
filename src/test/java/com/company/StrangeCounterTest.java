@@ -10,7 +10,7 @@ public class StrangeCounterTest {
 
         long actual = StrangeCounter.strangeCounter(t);
 
-        Assert.assertEquals(expected,t);
+        Assert.assertEquals(expected,actual);
     }
 
     @Test
@@ -26,6 +26,11 @@ public class StrangeCounterTest {
     @Test
     public void test3(){
         Test(12,10);
+    }
+
+    @Test
+    public void test4(){
+        Test(3,1);
     }
 
 

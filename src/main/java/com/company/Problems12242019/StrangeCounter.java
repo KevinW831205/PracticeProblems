@@ -16,14 +16,21 @@ public class StrangeCounter {
         //12
         //24
 
-        long sum = 0;
-        int n=0;
-        while(t> 3* Math.pow(2,n)){
-            sum += 3*Math.pow(2,n);
+
+        /*
+        t = 10
+        3 6
+         */
+        long countDownFrom=3;
+        int n=1;
+        System.out.println(t);
+        while(t>countDownFrom){
+            t-=countDownFrom;
+            countDownFrom = (long) (3*Math.pow(2,n));
             n++;
         }
-        long result = t - sum;
 
+        long result = countDownFrom+1-t;
         return result;
     }
 
