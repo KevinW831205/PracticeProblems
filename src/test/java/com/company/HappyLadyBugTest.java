@@ -59,5 +59,10 @@ public class HappyLadyBugTest {
         Test("NO", "AABCBC");
     }
 
+    @Test
+    public void test10(){
+        Test("NO","A");
+    }
+
 }
 
