@@ -11,7 +11,20 @@ public class StrangeCounter {
 
     public static long strangeCounter(long t) {
 
-        return -1;
+        //3
+        //6
+        //12
+        //24
+
+        long sum = 0;
+        int n=0;
+        while(t> 3* Math.pow(2,n)){
+            sum += 3*Math.pow(2,n);
+            n++;
+        }
+        long result = t - sum;
+
+        return result;
     }
 
 }
