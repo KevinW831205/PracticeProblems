@@ -15,6 +15,13 @@ public class SurfaceArea3D {
             }
         }
 
+        for (int i = 0; i < A[i].length; i++) {
+            areaForwardBackward += A[0][i] +A[A[0].length-1][i];
+            for (int j = 1; j < A.length; j++) {
+                areaForwardBackward += A[j][i] - A[j-1][i];
+            }
+        }
+
         /*
         60
         1,3,4       8
@@ -22,7 +29,7 @@ public class SurfaceArea3D {
         1,2,4       8     4 6 10    9 9
          */
 
-        return -1;
+        return areaTopAndBottom + areaLeftRight + areaForwardBackward;
 
     }
 
