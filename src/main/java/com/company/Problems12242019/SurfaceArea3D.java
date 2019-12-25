@@ -4,18 +4,26 @@ public class SurfaceArea3D {
 
     public static int surfaceArea(int[][] A) {
 
-        int areaTopAndBottom =  A.length * A[0].length *2;
+        int areaTopAndBottom = A.length * A[0].length * 2;
+        int areaForwardBackward = 0;
+        int areaLeftRight = 0;
 
-
+        for (int i = 0; i < A.length; i++) {
+            areaLeftRight += A[i][0] + A[i][A[i].length - 1];
+            for (int j = 1; j < A[i].length; j++) {
+                areaLeftRight += A[i][j] - A[i][j-1];
+            }
+        }
 
         /*
         60
-        1,3,4
-        2,2,3
-        1,2,4
+        1,3,4       8
+        2,2,3       6
+        1,2,4       8     4 6 10    9 9
          */
 
         return -1;
+
     }
 
 
