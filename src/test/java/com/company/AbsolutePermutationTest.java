@@ -35,4 +35,16 @@ public class AbsolutePermutationTest {
         absolutePermutationTest(expected,10,5);
     }
 
+    @Test
+    public void Test5(){
+        int[] expected = new int[]{3,4,1,2,7,8,5,6,11,12,9,10};
+        absolutePermutationTest(expected,12,2);
+    }
+
+    @Test
+    public void Test6(){
+        int[] expected = new int[]{3,4,1,2,7,8,5,6,11,12,9,10};
+        absolutePermutationTest(expected,12,2);
+    }
+
 }
