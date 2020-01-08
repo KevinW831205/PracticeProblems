@@ -9,15 +9,15 @@ public class AbsolutePermutation {
         Set<Integer> added = new HashSet<>();
         int[] result = new int[n];
 
-        if(n%k == 0){
+        if (k != 0 && n % k == 0) {
             for (int i = 1; i <= n; i++) {
                 System.out.println(i);
-                if (i - k >= 1 && i - k <= n && !added.contains(i-k)) {
+                if (i - k >= 1 && i - k <= n && !added.contains(i - k)) {
                     result[i - 1] = i - k;
-                    added.add(i-k);
-                } else if (i + k >= 1 && i + k <= n && !added.contains(i+k)) {
+                    added.add(i - k);
+                } else if (i + k >= 1 && i + k <= n && !added.contains(i + k)) {
                     result[i - 1] = i + k;
-                    added.add(i+k);
+                    added.add(i + k);
                 } else {
                     return new int[]{-1};
                 }
@@ -25,12 +25,12 @@ public class AbsolutePermutation {
         } else {
             for (int i = 1; i <= n; i++) {
                 System.out.println(i);
-                if (i - k >= 1 && i - k <= n && !added.contains(i-k)) {
-                    result[i - 1] = i - k;
-                    added.add(i-k);
-                } else if (i + k >= 1 && i + k <= n && !added.contains(i+k)) {
+                if (i + k >= 1 && i + k <= n && !added.contains(i + k)) {
                     result[i - 1] = i + k;
-                    added.add(i+k);
+                    added.add(i + k);
+                } else if (i - k >= 1 && i - k <= n && !added.contains(i - k)) {
+                    result[i - 1] = i - k;
+                    added.add(i - k);
                 } else {
                     return new int[]{-1};
                 }
