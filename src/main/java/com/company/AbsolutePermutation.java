@@ -25,10 +25,12 @@ public class AbsolutePermutation {
             for (int i = 1; i <= n / k; i++) {
                 for (int j = 1; j <= k; j++) {
                     int index = k*(i-1)+j-1;
-                    if (j % 2 == 1) {
+                    if (i % 2 == 1) {
+                        int num = k*i+j;
                         result[index] = k * i + j;
                     } else {
-                        result[index] = k * i - j;
+                        int num = k*(i-2)+j;
+                        result[index] = num;
                     }
                 }
             }
