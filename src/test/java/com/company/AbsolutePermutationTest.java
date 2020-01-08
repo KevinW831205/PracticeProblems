@@ -43,7 +43,7 @@ public class AbsolutePermutationTest {
 
     @Test
     public void Test6(){
-        int[] expected = new int[]{3,4,5,6,7,8,9,10,1,2};
+        int[] expected = new int[]{-1};
         absolutePermutationTest(expected,10,2);
     }
 

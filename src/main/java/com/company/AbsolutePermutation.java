@@ -22,7 +22,7 @@ public class AbsolutePermutation {
                     return new int[]{-1};
                 }
             }
-        } else {
+        } else if(k == n/2 || k==0) {
             for (int i = 1; i <= n; i++) {
                 System.out.println(i);
                 if (i + k >= 1 && i + k <= n && !added.contains(i + k)) {
@@ -35,6 +35,8 @@ public class AbsolutePermutation {
                     return new int[]{-1};
                 }
             }
+        } else {
+            return new int[]{-1};
         }
 
         return result;
