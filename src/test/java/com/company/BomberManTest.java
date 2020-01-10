@@ -6,8 +6,8 @@ import org.junit.Test;
 public class BomberManTest {
 
     public void testBomberMan(String[] expected, int seconds, String[] grid) {
-        BomberMan.bomberMan(seconds, grid);
-        Assert.assertArrayEquals(expected, grid);
+        String[] actual = BomberMan.bomberMan(seconds, grid);
+        Assert.assertArrayEquals(expected, actual);
     }
 
     @Test
@@ -50,5 +50,26 @@ public class BomberManTest {
                 "OO.O..."
         };
         testBomberMan(expectedGrid, 5, initialGrid);
+    }
+
+    @Test
+    public void test3(){
+        String[] expectedGrid = new String[]{
+                "OOOOOOO",
+                "OOOOOOO",
+                "OOOOOOO",
+                "OOOOOOO",
+                "OOOOOOO",
+                "OOOOOOO"
+        };
+        String[] initialGrid = new String[]{
+                ".......",
+                "...O.O.",
+                "....O..",
+                "..O....",
+                "OO...OO",
+                "OO.O..."
+        };
+        testBomberMan(expectedGrid, 4, initialGrid);
     }
 }
