@@ -19,6 +19,9 @@ public class Main {
 //        System.out.println("x " +x);
 //        System.out.println("x+1 "+(x+1));
 
-
+        String s = "0123456789";
+        System.out.println(s.substring(1));
+        System.out.println(s.substring(0,5)+"."+s.substring(5+1));
+        System.out.printf(s.substring(4,7));
     }
 }
