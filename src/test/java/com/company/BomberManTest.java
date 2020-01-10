@@ -30,4 +30,25 @@ public class BomberManTest {
         };
         testBomberMan(expectedGrid, 3, initialGrid);
     }
+
+    @Test
+    public void test2() {
+        String[] expectedGrid = new String[]{
+                ".......",
+                "...O.O.",
+                "...OO..",
+                "..OOOO.",
+                "OOOOOOO",
+                "OOOOOOO"
+        };
+        String[] initialGrid = new String[]{
+                ".......",
+                "...O.O.",
+                "....O..",
+                "..O....",
+                "OO...OO",
+                "OO.O..."
+        };
+        testBomberMan(expectedGrid, 5, initialGrid);
+    }
 }
