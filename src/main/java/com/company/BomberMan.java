@@ -11,17 +11,27 @@ public class BomberMan {
             }
             result[i] = row;
         }
-        if(n == 1){
+        if (n == 1) {
             return grid;
         } else if (n % 2 == 0) {
             return result;
         } else {
-            String[] grid2SecAgo = bomberMan(n-2,grid);
-            for(int i=0; i<grid2SecAgo.length; i++){
+            String[] grid2SecAgo = bomberMan(n - 2, grid);
+            for (int i = 0; i < grid2SecAgo.length; i++) {
+                for (int j = 0; j < grid2SecAgo[i].length(); j++) {
+                    if (grid2SecAgo[i].charAt(j) == 'O') {
+                        if (j == 0) {
+
+                        } else if (j == grid2SecAgo[i].length() - 1) {
+
+                        } else {
+
+                        }
+                    }
+                }
 
             }
-
+            return grid;
         }
-        return result;
     }
 }
