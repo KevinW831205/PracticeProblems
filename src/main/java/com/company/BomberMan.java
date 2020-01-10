@@ -34,16 +34,22 @@ public class BomberMan {
                             result[i - 1] = result[i - 1].substring(0, result.length - 1) + ".";
                         } else if (i == 0) {
                             result[i] = result[i].substring(0, j - 1) + "..." + result[i].substring(j + 2);
-                            result[i+1] = result[i+1].substring(0,j) +"."+result[i+1].substring(j+1);
+                            result[i + 1] = result[i + 1].substring(0, j) + "." + result[i + 1].substring(j + 1);
                         } else if (j == 0) {
-
+                            result[i] = ".." + result[i].substring(2);
+                            result[i + 1] = "." + result[i + 1].substring(1);
+                            result[i - 1] = "." + result[i - 1].substring(1);
                         } else if (i == result.length - 1) {
                             result[i] = result[i].substring(0, j - 1) + "..." + result[i].substring(j + 2);
-                            result[i-1] = result[i-1].substring(0,j) +"."+result[i-1].substring(j+1);
+                            result[i - 1] = result[i - 1].substring(0, j) + "." + result[i - 1].substring(j + 1);
                         } else if (j == result.length - 1) {
-
+                            result[i] = result[i].substring(0, j - 1) + "..";
+                            result[i + 1] = result[i + 1].substring(0, j) + "." ;
+                            result[i - 1] = result[i - 1].substring(0, j) + "." ;
                         } else {
-
+                            result[i] = result[i].substring(0, j - 1) + "..." + result[i].substring(j + 2);
+                            result[i + 1] = result[i + 1].substring(0, j) + "." + result[i + 1].substring(j + 1);
+                            result[i - 1] = result[i - 1].substring(0, j) + "." + result[i - 1].substring(j + 1);
                         }
                     }
                 }
