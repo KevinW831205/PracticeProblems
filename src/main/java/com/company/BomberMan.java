@@ -20,16 +20,31 @@ public class BomberMan {
             for (int i = 0; i < grid2SecAgo.length; i++) {
                 for (int j = 0; j < grid2SecAgo[i].length(); j++) {
                     if (grid2SecAgo[i].charAt(j) == 'O') {
-                        if (j == 0) {
+                        if (j == 0 && i == 0) {
+                            result[i] = ".." + result[i].substring(2);
+                            result[i + 1] = "." + result[i + 1].substring(1);
+                        } else if (i == 0 && j == result.length - 1) {
+                            result[i] = result[i].substring(0, result.length - 2) + "..";
+                            result[i + 1] = result[i + 1].substring(0, result.length - 2) + ".";
+                        } else if (i == result.length - 1 && j == 0) {
+                            result[i] = ".." + result[i].substring(2);
+                            result[i + 1] = "." + result[i + 1].substring(1);
+                        } else if (i == result.length - 1 && j == result.length - 1) {
+                            result[i] = result[i].substring(0, result.length - 2) + "..";
+                            result[i - 1] = result[i - 1].substring(0, result.length - 2) + ".";
+                        } else if (i == 0) {
 
-                        } else if (j == grid2SecAgo[i].length() - 1) {
+                        } else if (j == 0) {
+
+                        } else if (i == result.length - 1) {
+
+                        } else if (j == result.length - 1) {
 
                         } else {
 
                         }
                     }
                 }
-
             }
             return grid;
         }

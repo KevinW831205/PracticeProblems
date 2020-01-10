@@ -15,9 +15,9 @@ public class Main {
 //
 //        System.out.println(l1);
 
-        int x = Integer.MAX_VALUE;
-        System.out.println("x " +x);
-        System.out.println("x+1 "+(x+1));
+//        int x = Integer.MAX_VALUE;
+//        System.out.println("x " +x);
+//        System.out.println("x+1 "+(x+1));
 
 
     }
