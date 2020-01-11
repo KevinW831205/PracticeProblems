@@ -22,6 +22,7 @@ public class Main {
         String s = "0123456789";
         System.out.println(s.substring(1));
         System.out.println(s.substring(0,5)+"."+s.substring(5+1));
-        System.out.printf(s.substring(4,7));
+        System.out.println(s.substring(4,7));
+        System.out.println(s.substring(0,s.length()-1));
     }
 }
