@@ -23,8 +23,23 @@ public class EmaSuperComputer {
         for (int i = 1; i < arrGrid.length; i++) {
             for (int j = 1; j < arrGrid[i].length; j++) {
                 int offset = 1;
-                if (arrGrid[i + offset][j].equals("G") && arrGrid[i - offset][j].equals("G") && arrGrid[i][j + offset].equals("G") && arrGrid[i][j - offset].equals("G")) {
+                boolean invalid = false;
+                do {
+                    invalid = true;
+                    try {
+                        if (arrGrid[i + offset][j].equals("G") && arrGrid[i - offset][j].equals("G") && arrGrid[i][j + offset].equals("G") && arrGrid[i][j - offset].equals("G")) {
+                            offset++;
+                            continue;
+                        }
+                    } catch (ArrayIndexOutOfBoundsException e) {
 
+                    }
+                    invalid = false;
+                } while (invalid);
+                if (pulse1 <= pulse2) {
+                    pulse1 = Math.max(pulse1, 1 + (4 * (offset - 1)));
+                } else {
+                    pulse2 = Math.max(pulse2, 1 + (4 * (offset - 1)));
                 }
             }
         }
