@@ -7,6 +7,15 @@ public class Calc {
     public double evaluate(String expr) {
         String[] tokens = expr.split(" ");
 
+
+        if (tokens.length == 1) {
+            try {
+                return Double.parseDouble(tokens[0]);
+            }catch (NumberFormatException e){
+                return 0D;
+            }
+        }
+
         for (int i = 0; i < tokens.length; i++) {
             Double val;
             if (tokens[i].matches("[0-9]+")) {
@@ -33,7 +42,7 @@ public class Calc {
                 return val;
             }
 
-            tokens =  splice(tokens, i-2, 3, val);
+            tokens = splice(tokens, i - 2, 3, val);
 
             i = i - 3;
         }
@@ -41,7 +50,7 @@ public class Calc {
         return 0;
     }
 
-    public String[] splice(String[] tokens, int index, int numberToRemove, Double val) {
+    private String[] splice(String[] tokens, int index, int numberToRemove, Double val) {
         String[] result = Arrays.copyOf(tokens, tokens.length - numberToRemove + 1);
         result[index] = val.toString();
         for (int i = 0; i < index; i++) {

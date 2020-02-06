@@ -19,12 +19,17 @@ public class CalcTest {
     }
 
     @Test
-    public void spliceTest(){
-        Calc c = new Calc();
-        String[] initial = "5 12.0 + 3 -".split(" ");
-        String[] result = c.splice(initial,0,3, 17D);
-
-        Assert.assertArrayEquals("17.0 3 -".split(" "), result);
+    public void evalTest2(){
+        evalTest(0D, "");
     }
+
+//    @Test
+//    public void spliceTest(){
+//        Calc c = new Calc();
+//        String[] initial = "5 12.0 + 3 -".split(" ");
+//        String[] result = c.splice(initial,0,3, 17D);
+//
+//        Assert.assertArrayEquals("17.0 3 -".split(" "), result);
+//    }
 
 }
