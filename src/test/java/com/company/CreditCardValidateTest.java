@@ -10,4 +10,9 @@ public class CreditCardValidateTest {
         boolean actual = CreditCardValidate.validate("891");
         Assert.assertEquals(false,actual);
     }
+    @Test
+    public void test2(){
+        boolean actual = CreditCardValidate.validate("232");
+        Assert.assertEquals(true,actual);
+    }
 }
