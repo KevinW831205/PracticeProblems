@@ -4,62 +4,50 @@ public class Greed {
     public static int greedy(int[] dice) {
         //code here
         int score = 0;
+        int[] faceCount = count(dice);
 
-
-        int oneCount = count(1, dice);
-        while (oneCount >= 3) {
+        while (faceCount[0] >= 3) {
             score += 1000;
-            oneCount -= 3;
+            faceCount[0] -= 3;
         }
-        while (oneCount > 0) {
+
+        while (faceCount[0] > 0) {
             score += 100;
-            oneCount--;
+            faceCount[0]--;
         }
-
-        int twoCount = count(2, dice);
-        while (twoCount >= 3) {
+        while (faceCount[1] >= 3) {
             score += 200;
-            twoCount--;
+            faceCount[1] -= 3;
         }
-
-        int threeCount = count(3, dice);
-        while (threeCount >= 3) {
+        while (faceCount[2] >= 3) {
             score += 300;
-            threeCount--;
+            faceCount[2] -= 3;
         }
-
-        int fourCount = count(4, dice);
-        while (fourCount >= 3) {
+        while (faceCount[3] >= 3) {
             score += 400;
-            fourCount--;
+            faceCount[3] -= 3;
         }
-
-        int fiveCount = count(5, dice);
-        while (fiveCount >= 3) {
+        while (faceCount[4] >= 3) {
             score += 500;
-            fiveCount--;
+            faceCount[4] -= 3;
         }
-        while (fiveCount > 0) {
+        while (faceCount[4] > 0) {
             score += 50;
-            fiveCount--;
+            faceCount[4]--;
+        }
+        while (faceCount[5] >= 3) {
+            score += 600;
+            faceCount[5] -= 3;
         }
 
-        int sixCount = count(6,dice);
-
-        while (sixCount>3){
-            score+=600;
-            sixCount--;
-        }
 
         return score;
     }
 
-    private static int count(int number, int[] dice) {
-        int count = 0;
+    private static int[] count(int[] dice) {
+        int[] count = new int[6];
         for (int die : dice) {
-            if (die == number) {
-                count++;
-            }
+            count[die - 1]++;
         }
         return count;
     }
