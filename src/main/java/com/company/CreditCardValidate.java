@@ -20,11 +20,7 @@ public class CreditCardValidate {
             }
             isSecond = !isSecond;
         }
-
-
-
         return sum%10 == 0;
-
     }
 
 }
