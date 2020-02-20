@@ -28,6 +28,11 @@ public class GreedTest {
         int[] input = new int[]{2, 4, 4, 5, 4};
         greedTest(450, input);
     }
+    @Test
+    public void test4() {
+        int[] input = new int[]{6, 6, 6, 6, 1};
+        greedTest(700, input);
+    }
 
 
 }

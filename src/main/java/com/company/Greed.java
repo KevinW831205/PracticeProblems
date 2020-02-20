@@ -5,6 +5,7 @@ public class Greed {
         //code here
         int score = 0;
 
+
         int oneCount = count(1, dice);
         while (oneCount >= 3) {
             score += 1000;
@@ -44,7 +45,8 @@ public class Greed {
         }
 
         int sixCount = count(6,dice);
-        while (sixCount>6){
+
+        while (sixCount>3){
             score+=600;
             sixCount--;
         }
