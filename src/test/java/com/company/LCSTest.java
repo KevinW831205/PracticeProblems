@@ -18,7 +18,7 @@ public class LCSTest {
 
     @Test
     public void test2(){
-        testLCS("abc","abcdef","abcdef");
+        testLCS("abc","abc","abcdef");
     }
 
     @Test
