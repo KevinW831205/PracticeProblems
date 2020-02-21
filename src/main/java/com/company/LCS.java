@@ -20,7 +20,6 @@ public class LCS {
             String a = findCommon(x, y, m, n - 1);
             String b = findCommon(x, y, m - 1, n);
             return (a.length() > b.length()) ? a : b;
-
         }
 
     }
