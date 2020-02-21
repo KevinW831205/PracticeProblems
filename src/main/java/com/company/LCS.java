@@ -5,23 +5,23 @@ public class LCS {
     public static String lcs(String x, String y) {
         // your code here
 
-        StringBuilder result = new StringBuilder();
 
-        int pointerJ = 0;
+        String resultR = findCommon(x.toCharArray(),y.toCharArray(),x.length(),y.length());
+        StringBuilder result = new StringBuilder(resultR);
+        return result.reverse().toString();
+    }
 
-        System.out.println(x+ "  "+y);
-        for (int i = 0; i < x.length(); i++) {
-            for (int j = pointerJ; j < y.length(); j++) {
-                if(x.charAt(i) == y.charAt(j)){
-                    System.out.println("i"+x.charAt(i));
-                    System.out.println("j"+y.charAt(j));
-                    result.append(x.charAt(i));
-                    pointerJ = j;
-                    break;
-                }
-            }
+    private static String findCommon(char[] x, char[] y, int m, int n) {
+        if (m == 0 || n == 0) {
+            return "";
+        } else if (x[m - 1] == y[n - 1]) {
+            return x[m - 1] + findCommon(x, y, m - 1, n - 1);
+        } else {
+            String a = findCommon(x, y, m, n - 1);
+            String b = findCommon(x, y, m - 1, n);
+            return (a.length() > b.length()) ? a : b;
+
         }
 
-        return result.toString();
     }
 }
