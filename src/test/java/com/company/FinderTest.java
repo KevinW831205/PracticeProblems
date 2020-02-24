@@ -31,4 +31,16 @@ public class FinderTest {
         finderTest(false, maze);
     }
 
+    @Test
+    public void test3(){
+        String maze = "......\n"+
+                "......\n"+
+                "......\n"+
+                "......\n"+
+                ".....W\n"+
+                "....W.";
+
+        finderTest(false,maze);
+    }
+
 }

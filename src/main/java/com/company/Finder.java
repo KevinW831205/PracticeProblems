@@ -1,9 +1,6 @@
 package com.company;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Finder {
 
@@ -42,14 +39,16 @@ class MyFinder{
         Node startingNode = new Node(0,0);
         Node endNode = new Node(mazeArr.length-1, mazeArr[0].length-1);
         openNodes.add(startingNode);
+
         while(!openNodes.isEmpty()){
-            for(Node node : openNodes){
-                System.out.println(node);
+            Iterator<Node> iterator = openNodes.iterator();
+
+
+            while (iterator.hasNext()){
+                Node node = iterator.next();
                 openNodes.remove(node);
                 Integer x = node.getPosx();
                 Integer y = node.getPosy();
-                System.out.println("x,"+x);
-                System.out.println("y"+y);
 
                 addOpenNodes(x-1,y);
                 addOpenNodes(x+1,y);
