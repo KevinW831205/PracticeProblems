@@ -7,21 +7,40 @@ import java.util.Set;
 
 public class Finder {
 
-    static String[][] mazeArr;
-    static Set<Node> openNodes = new HashSet<>();
-    static Set<Node> closedNodes = new HashSet<>();
-
 
     static boolean pathFinder(String maze) {
         // Your code here!!
 
+        MyFinder myFinder = new MyFinder(maze);
 
+        return myFinder.findPath();
+    }
+
+
+}
+
+class MyFinder{
+    String maze;
+
+    String[][] mazeArr;
+    Set<Node> openNodes = new HashSet<>();
+    Set<Node> closedNodes = new HashSet<>();
+
+
+
+    public MyFinder(String maze) {
+        this.maze = maze;
+    }
+
+
+    public boolean findPath(){
         String[] mazeRow = maze.split("\n");
         mazeArr = Arrays.stream(mazeRow)
                 .map(r -> r.split(""))
                 .toArray(String[][]::new);
 
         Node startingNode = new Node(0,0);
+        Node endNode = new Node(mazeArr.length-1, mazeArr[0].length-1);
         openNodes.add(startingNode);
         while(!openNodes.isEmpty()){
             for(Node node : openNodes){
@@ -29,6 +48,8 @@ public class Finder {
                 openNodes.remove(node);
                 Integer x = node.getPosx();
                 Integer y = node.getPosy();
+                System.out.println("x,"+x);
+                System.out.println("y"+y);
 
                 addOpenNodes(x-1,y);
                 addOpenNodes(x+1,y);
@@ -38,10 +59,10 @@ public class Finder {
             }
         }
 
-        return false;
+        return closedNodes.contains(endNode);
     }
 
-    private static void addOpenNodes(int x, int y){
+    private void addOpenNodes(int x, int y){
         try{
             if(mazeArr[x][y].equals(".")){
                 Node nodeToAdd = new Node(x,y);
@@ -53,8 +74,8 @@ public class Finder {
 
         }
     }
-}
 
+}
 
 class Node{
     private Integer posx;
@@ -85,5 +106,13 @@ class Node{
     @Override
     public int hashCode() {
         return Objects.hash(posx, posy);
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "posx=" + posx +
+                ", posy=" + posy +
+                '}';
     }
 }
