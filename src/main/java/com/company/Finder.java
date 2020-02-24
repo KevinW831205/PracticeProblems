@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.Arrays;
-import java.util.stream.Collector;
 
 public class Finder {
 
@@ -13,13 +12,7 @@ public class Finder {
         String[] mazeRow = maze.split("\n");
         String[][] mazeArr = Arrays.stream(mazeRow)
                 .map(r -> r.split(""))
-                .toArray(String[][]{} );
-
-        for(String[] row : mazeArr){
-            for(String c : row){
-                System.out.println(c);
-            }
-        }
+                .toArray(String[][]::new);
 
         return false;
     }
