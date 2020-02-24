@@ -7,7 +7,7 @@ public class Finder {
     static boolean pathFinder(String maze) {
         // Your code here!!
 
-        String[] s =  {};
+        String[] s = {};
 
         String[] mazeRow = maze.split("\n");
         String[][] mazeArr = Arrays.stream(mazeRow)
@@ -17,12 +17,13 @@ public class Finder {
         return false;
     }
 
-    class maze {
+    private static boolean hasTopBottomRoute(String[][] maze) {
 
+    }
+
+    private static boolean hasRightLeftRoute(String[][] maze) {
 
     }
 
-    class node {
 
-    }
 }
