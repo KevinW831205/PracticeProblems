@@ -1,11 +1,14 @@
 package com.company;
 
 import java.util.Arrays;
+import java.util.Set;
 
 public class Finder {
 
     static boolean pathFinder(String maze) {
         // Your code here!!
+
+        Set<Node> moveAbleNode;
 
         String[] s = {};
 
@@ -14,16 +17,35 @@ public class Finder {
                 .map(r -> r.split(""))
                 .toArray(String[][]::new);
 
+
+
         return false;
     }
 
-    private static boolean hasTopBottomRoute(String[][] maze) {
 
+
+}
+
+class Node{
+    Integer posx;
+    Integer posy;
+    Set<Node> movableNodes;
+
+    public Node(Integer posx, Integer posy, Set<Node> movableNodes) {
+        this.posx = posx;
+        this.posy = posy;
+        this.movableNodes = movableNodes;
     }
 
-    private static boolean hasRightLeftRoute(String[][] maze) {
-
+    public Integer getPosx() {
+        return posx;
     }
 
+    public Integer getPosy() {
+        return posy;
+    }
 
+    public Set<Node> getMovableNodes() {
+        return movableNodes;
+    }
 }
