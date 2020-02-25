@@ -13,6 +13,7 @@ public class Finder {
     static boolean pathFinder(String maze) {
         // Your code here!!
 
+        System.out.println(maze);
         MyFinder myFinder = new MyFinder(maze);
 
         return myFinder.findPath();
