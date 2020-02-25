@@ -5,24 +5,36 @@ public class LongestSlideDown {
     public static int longestSlideDown(int[][] pyramid) {
         // Code Goes Here..
 
-        Pyramid cPyramid = new Pyramid(new PyramidNode(pyramid[0][0]));
+        Pyramid cPyramid = new Pyramid(pyramid);
 
 
-
-
-        return 0;
+        return cPyramid.findMaxSum();
     }
 
 
 }
 
 class PyramidNode {
+    private int row;
+    private int index;
     private PyramidNode leftChild;
-    private Pyramid rightChild;
+    private PyramidNode rightChild;
     private int value;
 
-    public PyramidNode(int value) {
-        this.value = value;
+    public PyramidNode(int[][] pyramid, int row, int index) {
+        this.row = row;
+        this.index = index;
+        this.value = pyramid[row][index];
+        try {
+            leftChild = new PyramidNode(pyramid, row + 1, index);
+        } catch (IndexOutOfBoundsException e) {
+            leftChild = null;
+        }
+        try {
+            rightChild = new PyramidNode(pyramid, row + 1, index + 1);
+        } catch (IndexOutOfBoundsException e) {
+            rightChild = null;
+        }
     }
 
     public int getValue() {
@@ -33,30 +45,24 @@ class PyramidNode {
         return leftChild;
     }
 
-    public void setLeftChild(PyramidNode leftChild) {
-        this.leftChild = leftChild;
-    }
-
-    public Pyramid getRightChild() {
+    public PyramidNode getRightChild() {
         return rightChild;
-    }
-
-    public void setRightChild(Pyramid rightChild) {
-        this.rightChild = rightChild;
     }
 }
 
 class Pyramid {
-    PyramidNode root;
+    private PyramidNode root;
 
-    public Pyramid(PyramidNode root) {
-        this.root = root;
+    public Pyramid(int[][] pyramid) {
+        this.root = new PyramidNode(pyramid, 0, 0);
     }
 
     public int findMaxSum() {
         return 0;
     }
 
-
+    public PyramidNode getRoot() {
+        return root;
+    }
 }
 
