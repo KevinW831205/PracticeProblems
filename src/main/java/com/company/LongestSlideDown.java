@@ -6,8 +6,6 @@ public class LongestSlideDown {
         // Code Goes Here..
 
         Pyramid cPyramid = new Pyramid(pyramid);
-
-
         return cPyramid.findMaxSum();
     }
 
@@ -58,11 +56,35 @@ class Pyramid {
     }
 
     public int findMaxSum() {
-        return 0;
+        Res res =  new Res();
+        res.val = Integer.MIN_VALUE;
+
+        maxUtil(root,res);
+        return res.val;
     }
 
     public PyramidNode getRoot() {
         return root;
     }
+
+    private int maxUtil(PyramidNode node, Res res) {
+        if (node == null) {
+            return 0;
+        }
+
+        int leftMax = maxUtil(node.getLeftChild(), res);
+        int rightMax = maxUtil(node.getRightChild(), res);
+
+        int max = Math.max(Math.max(rightMax, leftMax) + node.getValue(), node.getValue());
+
+//        int maxTop = Math.max(max, leftMax + rightMax + node.getValue());
+
+        res.val = Math.max(res.val, max);
+
+        return max;
+    }
 }
 
+class Res {
+    public int val;
+}
