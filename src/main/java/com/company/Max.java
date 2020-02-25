@@ -2,9 +2,7 @@ package com.company;
 
 public class Max {
     public static int sequence(int[] arr) {
-
         int max = 0;
-
         int sum = 0;
         for(int i : arr){
             sum += i;
@@ -13,8 +11,6 @@ public class Max {
             }
             max = Math.max(sum,max);
         }
-
-
         return max;
     }
 }
