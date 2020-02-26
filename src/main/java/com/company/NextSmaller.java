@@ -1,8 +1,8 @@
 package com.company;
 
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class NextSmaller {
 
@@ -10,35 +10,35 @@ public class NextSmaller {
         Long num = n;
         String[] digits = num.toString().split("");
 
+        int indexToSwap = indexWhereBecomeSmaller(digits);
+        String lh = num.toString().substring(0, indexToSwap );
+        List<String> rhList = Arrays.asList(num.toString().substring(indexToSwap).split(""));
+        rhList.sort(String::compareTo);
+        Integer numToSwap1 = Integer.parseInt(digits[indexToSwap]);
+        Integer numToSwap2 = null;
 
-        int i = indexWhereBecomeSmaller(digits);
-        String numToFindSmaller = digits[i];
-        String fh = num.toString().substring(0, i - 1);
-        String[] lha = num.toString().substring(i).split("");
-        List<String> lhaSorted = Arrays.stream(lha)
-                .sorted((s1, s2) -> -1 * s1.compareTo(s2))
-                .collect(Collectors.toList());
-
-        String toSwap = null;
-        for (String s : lhaSorted) {
-            if (s.compareTo(numToFindSmaller) < 0) {
-                toSwap = s;
-                lhaSorted.remove(s);
+        for (String s : rhList) {
+            if (Integer.parseInt(s) < numToSwap1) {
+                numToSwap2 = Integer.parseInt(s);
+                rhList.remove(s);
                 break;
             }
         }
-        if (toSwap != null) {
-            return Long.parseLong(fh + toSwap + lhaSorted.toString());
+        if (numToSwap2 != null) {
+            String rh = "";
+            for (String s : rhList) {
+                rh += s;
+            }
+            return Long.parseLong(lh + numToSwap2 + rh);
         }
+
         return -1;
     }
 
-    public static int indexWhereBecomeSmaller(String[] s) {
-        for (int i = 0; i < s.length - 1; i++) {
-            if (s[i].compareTo(s[i + 1]) < 0) {
-                if (i == 0 && s[i + 1].equals("0")) {
-                    continue;
-                }
+    public static int indexWhereBecomeSmaller(String[] digits) {
+        Integer[] vDigits = Arrays.stream(digits).map(Integer::parseInt).toArray(Integer[]::new);
+        for (int i = 0; i < vDigits.length - 1; i++) {
+            if (vDigits[i] > vDigits[i + 1]) {
                 return i;
             }
         }
