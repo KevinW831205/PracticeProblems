@@ -11,7 +11,6 @@ public class FactDecomp {
         for (int i = 2; i <= n; i++) {
             SortedMap<Integer, Integer> pf = primeFactors(i);
             pf.forEach((key, value) -> {
-                System.out.println("pf kv: " + key + " " + value);
                 result.put(key, result.getOrDefault(key, 0) + value);
             });
         }
@@ -28,7 +27,7 @@ public class FactDecomp {
         return sb.substring(0, sb.length() - 3);
     }
 
-    public static SortedMap<Integer, Integer> primeFactors(int n) {
+    private static SortedMap<Integer, Integer> primeFactors(int n) {
         SortedMap<Integer, Integer> result = new TreeMap<>();
 
         while (n % 2 == 0) {
@@ -46,7 +45,7 @@ public class FactDecomp {
         return result;
     }
 
-    public static boolean isPrime(int n) {
+    private static boolean isPrime(int n) {
         for (int i = 2; i < n / 2; i++) {
             if (n % i == 0) {
                 return false;
