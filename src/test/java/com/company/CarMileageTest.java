@@ -35,4 +35,15 @@ public class CarMileageTest {
         Assert.assertEquals(2, CarMileage.isInteresting(11211, new int[]{1337, 256}));
     }
 
+
+    @Test
+    public void testDecrement(){
+        Assert.assertTrue(CarMileage.checkSeqDec(3210));
+    }
+
+    @Test
+    public void testIncrement(){
+        Assert.assertTrue(CarMileage.checkSeqInc(7890));
+
+    }
 }
