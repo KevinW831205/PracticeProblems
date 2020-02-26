@@ -38,6 +38,21 @@ public class NextSmallerTest {
         nextsmTest(123456789,123456798);
 
     }
+    @Test
+    public void test7(){
+        nextsmTest(1234455321,1234512345);
+
+    }
+    @Test
+    public void test8(){
+        nextsmTest(1223310,1230123);
+
+    }
+    @Test
+    public void test9(){
+        nextsmTest(10721,11027);
+
+    }
 
 
 }
