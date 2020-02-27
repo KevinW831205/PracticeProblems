@@ -2,7 +2,6 @@ package com.company;
 
 
 import java.util.Arrays;
-import java.util.List;
 
 public class NextSmaller {
 
@@ -11,28 +10,39 @@ public class NextSmaller {
         String[] digits = num.toString().split("");
 
         int indexToSwap = indexWhereBecomeSmaller(digits);
-        String lh = num.toString().substring(0, indexToSwap );
-        List<String> rhList = Arrays.asList(num.toString().substring(indexToSwap).split(""));
-        rhList.sort(String::compareTo);
-        Integer numToSwap1 = Integer.parseInt(digits[indexToSwap]);
-        Integer numToSwap2 = null;
-
-        for (String s : rhList) {
-            if (Integer.parseInt(s) < numToSwap1) {
-                numToSwap2 = Integer.parseInt(s);
-                rhList.remove(s);
-                break;
+        String lh = num.toString().substring(0, indexToSwap);
+        System.out.println("index to swap: " + indexToSwap);
+        System.out.println("lh: " + lh);
+//        List<String> rhList = Arrays.asList(num.toString().substring(indexToSwap).split(""));
+//        rhList.sort(String::compareTo);
+        String[] rhArr = num.toString().substring(indexToSwap).split("");
+        int greatestSmallerIndex = 1;
+        Integer greatestSmallerValue = Integer.parseInt(rhArr[1]);
+        for (int i = 2; i < rhArr.length; i++) {
+            if (Integer.parseInt(rhArr[i]) < Integer.parseInt(rhArr[0]) && Integer.parseInt(rhArr[i]) > greatestSmallerValue) {
+                greatestSmallerIndex = i;
+                greatestSmallerValue = Integer.parseInt(rhArr[i]);
             }
         }
-        if (numToSwap2 != null) {
-            String rh = "";
-            for (String s : rhList) {
-                rh += s;
-            }
-            return Long.parseLong(lh + numToSwap2 + rh);
+        Swap(rhArr, 0, greatestSmallerIndex);
+        Arrays.sort(rhArr, 1, rhArr.length - 1);
+        String result = lh.toString();
+        for(String s : rhArr){
+            result += s;
         }
+        return Long.parseLong(result);
 
-        return -1;
+
+
+//        if (numToSwap2 != null) {
+//            String rh = "";
+//            for (String s : rhList) {
+//                rh += s;
+//            }
+//            return Long.parseLong(lh + numToSwap2 + rh);
+//        }
+
+//        return -1;
     }
 
     public static int indexWhereBecomeSmaller(String[] digits) {
@@ -44,4 +54,12 @@ public class NextSmaller {
         }
         return -1;
     }
+
+    public static void Swap(String[] arr, int i1, int i2) {
+        String temp = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = temp;
+    }
+
+
 }
