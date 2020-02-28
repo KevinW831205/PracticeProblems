@@ -12,6 +12,7 @@ public class NextSmaller {
         int indexFirstLarger = -1;
         for (int i = digits.length - 1; i > 0; i--) {
             if (digits[i - 1] > digits[i]) {
+
                 indexFirstLarger = i - 1;
                 break;
             }
@@ -20,38 +21,35 @@ public class NextSmaller {
             return -1L;
         }
         Long[] lh = Arrays.copyOfRange(digits, 0, indexFirstLarger);
-        Long[] rh = Arrays.copyOfRange(digits, indexFirstLarger, digits.length - 1);
+        Long[] rh = Arrays.copyOfRange(digits, indexFirstLarger, digits.length);
 
         Long valueToSwap = rh[0];
         Long checkValue = rh[1];
         int indexToSwap = 1;
-        for(int i=2; i<rh.length; i++){
-            if(rh[i]<valueToSwap && rh[i]>checkValue){
+        for (int i = 2; i < rh.length; i++) {
+            if (rh[i] < valueToSwap && rh[i] > checkValue) {
                 checkValue = rh[i];
                 indexToSwap = i;
             }
         }
-        swap(rh,0,indexToSwap);
+        swap(rh, 0, indexToSwap);
+        Arrays.sort(rh, 1, rh.length, (s1, s2) -> s2.compareTo(s1));
 
+        StringBuilder sb = new StringBuilder();
+        for (Long i : lh) {
+            sb.append(i);
+        }
+        for (Long i : rh) {
+            sb.append(i);
+        }
 
-        System.out.println(indexFirstLarger);
+        String resultString = sb.toString();
+        if(resultString.charAt(0) == '0'){
+            return -1L;
+        }
+        return Long.parseLong(resultString);
 
-        return -1L;
     }
-
-//    public static int indexWhereBecomeSmaller(String[] digits) {
-//        Integer[] vDigits = Arrays.stream(digits).map(Integer::parseInt).toArray(Integer[]::new);
-//        int result = -1;
-//        for (int i = 0; i < vDigits.length - 1; i++) {
-//            if (vDigits[i] > vDigits[i + 1]) {
-//                if(i==0 && vDigits[i+1] == 0){
-//                    continue;
-//                }
-//                result = i;
-//            }
-//        }
-//        return result;
-//    }
 
     public static void swap(Long[] arr, int i1, int i2) {
         Long temp = arr[i1];
