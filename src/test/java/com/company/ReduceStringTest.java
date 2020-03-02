@@ -25,7 +25,7 @@ public class ReduceStringTest{
 
     @Test
     public void test3(){
-        reduceTest("baab","");
+        reduceTest("","baab");
     }
 
 
