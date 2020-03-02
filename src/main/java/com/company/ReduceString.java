@@ -23,9 +23,9 @@ public class ReduceString {
                 }
             }
             s = result;
-            System.out.println(s);
             arr = s.split("");
         }while(changed);
+
         return result;
     }
 }
