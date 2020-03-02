@@ -6,13 +6,18 @@ public class ReduceString {
 
         String[] arr = s.split("");
         String result;
-        boolean changed = false;
+        boolean changed;
         do {
             result = "";
-            for (int i = 0; i < arr.length - 1; i++) {
+            changed = false;
+            for (int i = 0; i < arr.length; i++) {
+                if(i == arr.length-1){
+                    result += arr[i];
+                    break;
+                }
                 if (arr[i].equals(arr[i + 1])) {
                     i++;
-                    changed = false;
+                    changed = true;
                 } else {
                     result+=arr[i];
                 }
