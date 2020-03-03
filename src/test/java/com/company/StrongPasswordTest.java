@@ -22,6 +22,12 @@ public class StrongPasswordTest {
     }
 
 
+    @Test
+    public void testSpecial(){
+        passTest(0, "Asdf123-");
+    }
+
+
 
 
 }

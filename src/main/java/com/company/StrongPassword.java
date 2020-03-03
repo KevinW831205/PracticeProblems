@@ -8,7 +8,7 @@ public class StrongPassword {
         int minToMeetLength = Math.max(6-password.length(),0);
 
         int bonusLength = 0;
-        if(!password.matches(".*[!@#\\$%\\^&\\*\\(\\)-\\+].*")){
+        if(!password.matches(".*[!@#\\$%\\^&\\*\\(\\)\\-\\+].*")){
             bonusLength++;
         }
         if(!password.matches(".*[A-Z].*")){
