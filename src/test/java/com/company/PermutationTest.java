@@ -1,68 +1,91 @@
 package com.company;
 
-import com.company.Problems12242019.Permutation;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 public class PermutationTest {
 
-    public void testFindPermutations(Set<Integer[]> expected, int input){
+    public void testFindPermutations(Set<Integer[]> expected, int input) {
         Set<Integer[]> actual = Permutation.findPermutations(input);
 
-        actual.forEach(is->{
-            for (Integer i : is) {
-                System.out.print(i);
-            }
-            System.out.println();
-        });
+//        actual.forEach(is -> {
+//            for (Integer i : is) {
+//                System.out.print(i);
+//            }
+//            System.out.println();
+//        });
 
-        expected.forEach(permutation->{
-            Assert.assertTrue(actual.contains(permutation));
+
+        ArraySetTest<Integer> tester = new ArraySetTest<>(actual);
+
+        expected.forEach(permutation -> {
+            Assert.assertTrue(tester.contains(permutation));
         });
     }
 
 
     @Test
-    public void test1(){
+    public void test1() {
         Set<Integer[]> expected = new HashSet<>();
 
-        Integer[] p = new Integer[]{0,0};
+        Integer[] p = new Integer[]{0, 0};
         expected.add(p);
-        p = new Integer[]{0,1};
+        p = new Integer[]{0, 1};
         expected.add(p);
-        p = new Integer[]{1,0};
+        p = new Integer[]{1, 0};
         expected.add(p);
-        p = new Integer[]{1,1};
+        p = new Integer[]{1, 1};
         expected.add(p);
 
-        testFindPermutations(expected,2);
+        testFindPermutations(expected, 2);
     }
 
     @Test
-    public void test2(){
+    public void test2() {
         Set<Integer[]> expected = new HashSet<>();
 
-        Integer[] p = new Integer[]{0,0,0};
+        Integer[] p = new Integer[]{0, 0, 0};
         expected.add(p);
-        p = new Integer[]{0,0,1};
+        p = new Integer[]{0, 0, 1};
         expected.add(p);
-        p = new Integer[]{0,1,0};
+        p = new Integer[]{0, 1, 0};
         expected.add(p);
-        p = new Integer[]{0,1,1};
+        p = new Integer[]{0, 1, 1};
         expected.add(p);
-        p = new Integer[]{1,0,0};
+        p = new Integer[]{1, 0, 0};
         expected.add(p);
-        p = new Integer[]{1,0,1};
+        p = new Integer[]{1, 0, 1};
         expected.add(p);
-        p = new Integer[]{1,1,0};
+        p = new Integer[]{1, 1, 0};
         expected.add(p);
-        p = new Integer[]{1,1,1};
+        p = new Integer[]{1, 1, 1};
         expected.add(p);
 
-        testFindPermutations(expected,3);
+        testFindPermutations(expected, 3);
     }
 
 }
+
+class ArraySetTest<someType> {
+    Set<someType[]> set;
+
+    public ArraySetTest(Set<someType[]> set) {
+        this.set = set;
+    }
+
+    public boolean contains(someType[] arr) {
+
+        for (someType[] arr2 : set) {
+            if (Arrays.equals(arr, arr2)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+}
+

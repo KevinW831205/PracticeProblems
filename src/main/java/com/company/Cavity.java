@@ -3,11 +3,15 @@ package com.company;
 public class Cavity {
 
     public static void main(String[] args) {
-        String[] res = cavityMap( new String[]{"1112", "1912", "1892","1234"});
-        for(String s : res){
-            System.out.println(s);
-        }
+//        String[] res = cavityMap( new String[]{"1112", "1912", "1892","1234"});
+//        for(String s : res){
+//            System.out.println(s);
+//        }
 
+        Integer[] a1 = new Integer[]{1};
+        Integer[] a2 = new Integer[]{1};
+
+        System.out.println(a1.equals(a2));
     }
 
     static String[] cavityMap(String[] grid) {

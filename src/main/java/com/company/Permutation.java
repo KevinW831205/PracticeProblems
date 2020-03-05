@@ -1,4 +1,4 @@
-package com.company.Problems12242019;
+package com.company;
 
 import java.util.Arrays;
 import java.util.HashSet;
