@@ -11,7 +11,17 @@ public class PermutationTest {
 
     public void testFindPermutations(Set<Integer[]> expected, int input){
         Set<Integer[]> actual = Permutation.findPermutations(input);
-        Assert.assertEquals(expected,actual);
+
+        actual.forEach(is->{
+            for (Integer i : is) {
+                System.out.print(i);
+            }
+            System.out.println();
+        });
+
+        expected.forEach(permutation->{
+            Assert.assertTrue(actual.contains(permutation));
+        });
     }
 
 
