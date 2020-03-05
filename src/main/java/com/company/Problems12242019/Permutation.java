@@ -5,11 +5,11 @@ import java.util.Set;
 public class Permutation {
 
     public static Set<Integer[]> findPermutations(int length) {
-//        Integer numOfPermutation = length*length;
-//
-//        for(int i=0; i<length; i++){
-//
-//        }
+        Integer numOfPermutation = length*length;
+
+        for(int i=0; i<numOfPermutation; i++){
+            System.out.println(Integer.toBinaryString(i));
+        }
 
         return null;
     }

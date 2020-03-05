@@ -31,4 +31,28 @@ public class PermutationTest {
         testFindPermutations(expected,2);
     }
 
+    @Test
+    public void test2(){
+        Set<Integer[]> expected = new HashSet<>();
+
+        Integer[] p = new Integer[]{0,0,0};
+        expected.add(p);
+        p = new Integer[]{0,0,1};
+        expected.add(p);
+        p = new Integer[]{0,1,0};
+        expected.add(p);
+        p = new Integer[]{0,1,1};
+        expected.add(p);
+        p = new Integer[]{1,0,0};
+        expected.add(p);
+        p = new Integer[]{1,0,1};
+        expected.add(p);
+        p = new Integer[]{1,1,0};
+        expected.add(p);
+        p = new Integer[]{1,1,1};
+        expected.add(p);
+
+        testFindPermutations(expected,3);
+    }
+
 }
