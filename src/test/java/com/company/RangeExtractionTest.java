@@ -20,6 +20,11 @@ public class RangeExtractionTest {
         testExtaction("-3--1,2,10,15,16,18-20", new int[] {-3,-2,-1,2,10,15,16,18,19,20});
     }
 
+    @Test
+    public void test3(){
+        testExtaction("-3--1,2,10,15,16,19,20", new int[] {-3,-2,-1,2,10,15,16,19,20});
+    }
+
 
 
 }
