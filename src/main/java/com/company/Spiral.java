@@ -11,10 +11,8 @@ public class Spiral {
             }
         }
 
-        SpiralPointer pointer = new SpiralPointer();
-
-        pointer.mark(result);
-
+        SpiralPointer pointer = new SpiralPointer(result);
+        pointer.spiral();
 
 
         for (int[] row : result) {
@@ -31,13 +29,57 @@ public class Spiral {
 class SpiralPointer {
     int x;
     int y;
+    int[][] map;
 
-    public SpiralPointer() {
+    public SpiralPointer(int[][] map) {
         this.x = 0;
         this.y = 1;
+        this.map = map;
+        mark();
     }
 
-    public void mark(int[][] arr){
-        arr[y][x] = 0;
+    public void mark() {
+        map[y][x] = 0;
+    }
+
+    public void spiral() {
+        moveRight();
+    }
+
+    public void moveRight() {
+        try {
+            while (!(map[y][x + 2] == 0 || map[y][x + 1] == 0)) {
+                x++;
+                mark();
+            }
+            moveDown();
+        } catch (IndexOutOfBoundsException e) {
+            moveDown();
+        }
+    }
+
+    public void moveLeft() {
+        x--;
+        mark();
+    }
+
+    public void moveUp() {
+        y++;
+        mark();
+    }
+
+    public void moveDown() {
+        try {
+            while (!(map[y-1][x] == 0 || map[y-2][x] == 0)) {
+                x++;
+                mark();
+            }
+            moveDown();
+        } catch (IndexOutOfBoundsException e) {
+            moveDown();
+        }
+
+        y--;
+        mark();
     }
 }
