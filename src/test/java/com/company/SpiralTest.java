@@ -20,7 +20,7 @@ public class SpiralTest {
 
     @Test
     public void test2() {
-        int[][] actual = Spiral.spiralize(10);
+        int[][] actual = Spiral.spiralize(8);
         int[][] expected = new int[][]{
                 {1, 1, 1, 1, 1, 1, 1, 1},
                 {0, 0, 0, 0, 0, 0, 0, 1},
