@@ -43,43 +43,74 @@ class SpiralPointer {
     }
 
     public void spiral() {
-        moveRight();
+        moveRightUntilEndAndMoveDown();
     }
 
-    public void moveRight() {
+    private void moveRight() {
+        x++;
+        mark();
+    }
+
+    private void moveRightUntilEndAndMoveDown() {
         try {
             while (!(map[y][x + 2] == 0 || map[y][x + 1] == 0)) {
-                x++;
-                mark();
+                moveRight();
             }
-            moveDown();
+            moveDownUntilEndAndMoveLeft();
         } catch (IndexOutOfBoundsException e) {
-            moveDown();
+            moveDownUntilEndAndMoveLeft();
         }
+
     }
 
-    public void moveLeft() {
+
+    private void moveLeft() {
         x--;
         mark();
     }
 
-    public void moveUp() {
+    private void moveUp() {
+        y--;
+        mark();
+    }
+
+    private void moveDown() {
         y++;
         mark();
     }
 
-    public void moveDown() {
+
+    private void moveDownUntilEndAndMoveLeft() {
         try {
-            while (!(map[y-1][x] == 0 || map[y-2][x] == 0)) {
-                x++;
-                mark();
+            while (!(map[y + 1][x] == 0 || map[y + 2][x] == 0)) {
+                moveDown();
             }
-            moveDown();
+            moveLeftUntilEndAndMoveUp();
         } catch (IndexOutOfBoundsException e) {
-            moveDown();
+            moveLeftUntilEndAndMoveUp();
+        }
+    }
+
+    private void moveLeftUntilEndAndMoveUp() {
+        try {
+            while (!(map[y][x - 1] == 0 || map[y][x - 2] == 0)) {
+                moveLeft();
+            }
+            moveUpUntilEndAndMoveRight();
+        } catch (IndexOutOfBoundsException e) {
+            moveUpUntilEndAndMoveRight();
+        }
+    }
+
+    private void moveUpUntilEndAndMoveRight() {
+        try {
+            while (!(map[y - 1][x] == 0 || map[y - 2][x] == 0)) {
+                moveUp();
+            }
+//            moveRightUntilEndAndMoveDown();
+        } catch (IndexOutOfBoundsException e){
+//            moveRightUntilEndAndMoveDown();
         }
 
-        y--;
-        mark();
     }
 }
