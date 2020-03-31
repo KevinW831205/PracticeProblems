@@ -22,9 +22,9 @@ public class Finder {
     public static int pathFinderShortest(String maze) {
         System.out.println(maze);
 
+        MyFinder myFinder = new MyFinder(maze);
 
-
-        return -1;
+        return myFinder.findShortestPath();
     }
 
 
@@ -87,6 +87,43 @@ class MyFinder {
         }
     }
 
+    public int findShortestPath() {
+        String[] mazeRow = maze.split("\n");
+        mazeArr = Arrays.stream(mazeRow)
+                .map(r -> r.split(""))
+                .toArray(String[][]::new);
+
+        FinderNode startingFinderNode = new FinderNode(0, 0);
+        FinderNode endFinderNode = new FinderNode(mazeArr.length - 1, mazeArr[0].length - 1);
+
+        Set<FinderNode> finderNodes = new HashSet<>();
+        finderNodes.add(startingFinderNode);
+
+        int steps = -1;
+        do {
+            Set<FinderNode> openFinderNode = finderNodes.stream()
+                    .filter(n -> !n.isChecked())
+                    .collect(Collectors.toSet());
+
+            for (FinderNode n : openFinderNode) {
+                n.check();
+                int x = n.getPosx();
+                int y = n.getPosy();
+                addOpenNodes(x + 1, y, finderNodes);
+                addOpenNodes(x - 1, y, finderNodes);
+                addOpenNodes(x, y + 1, finderNodes);
+                addOpenNodes(x, y - 1, finderNodes);
+            }
+            steps++;
+            if (openFinderNode.contains(endFinderNode)) {
+                return steps;
+            }
+            if (openFinderNode.isEmpty()) {
+                return -1;
+            }
+
+        } while (true);
+    }
 }
 
 class FinderNode {
