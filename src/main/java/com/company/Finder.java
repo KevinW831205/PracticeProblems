@@ -37,30 +37,30 @@ class MyFinder {
                 .map(r -> r.split(""))
                 .toArray(String[][]::new);
 
-        Node startingNode = new Node(0, 0);
-        Node endNode = new Node(mazeArr.length - 1, mazeArr[0].length - 1);
+        FinderNode startingFinderNode = new FinderNode(0, 0);
+        FinderNode endFinderNode = new FinderNode(mazeArr.length - 1, mazeArr[0].length - 1);
 
-        Set<Node> nodes = new HashSet<>();
-        nodes.add(startingNode);
+        Set<FinderNode> finderNodes = new HashSet<>();
+        finderNodes.add(startingFinderNode);
 
         do {
-            Set<Node> openNode = nodes.stream()
+            Set<FinderNode> openFinderNode = finderNodes.stream()
                     .filter(n -> !n.isChecked())
                     .collect(Collectors.toSet());
 
-            for (Node n : openNode) {
+            for (FinderNode n : openFinderNode) {
                 n.check();
                 int x = n.getPosx();
                 int y = n.getPosy();
-                addOpenNodes(x + 1, y, nodes);
-                addOpenNodes(x - 1, y, nodes);
-                addOpenNodes(x, y + 1, nodes);
-                addOpenNodes(x, y - 1, nodes);
+                addOpenNodes(x + 1, y, finderNodes);
+                addOpenNodes(x - 1, y, finderNodes);
+                addOpenNodes(x, y + 1, finderNodes);
+                addOpenNodes(x, y - 1, finderNodes);
             }
-            if (openNode.contains(endNode)) {
+            if (openFinderNode.contains(endFinderNode)) {
                 return true;
             }
-            if (openNode.isEmpty()) {
+            if (openFinderNode.isEmpty()) {
                 return false;
             }
 
@@ -68,11 +68,11 @@ class MyFinder {
 
     }
 
-    private void addOpenNodes(int x, int y, Set<Node> setToAdd) {
+    private void addOpenNodes(int x, int y, Set<FinderNode> setToAdd) {
         try {
             if (mazeArr[x][y].equals(".")) {
-                Node nodeToAdd = new Node(x, y);
-                setToAdd.add(nodeToAdd);
+                FinderNode finderNodeToAdd = new FinderNode(x, y);
+                setToAdd.add(finderNodeToAdd);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
 
@@ -81,12 +81,12 @@ class MyFinder {
 
 }
 
-class Node {
+class FinderNode {
     private Integer posx;
     private Integer posy;
     private boolean checked = false;
 
-    public Node(Integer posx, Integer posy) {
+    public FinderNode(Integer posx, Integer posy) {
         this.posx = posx;
         this.posy = posy;
     }
@@ -111,9 +111,9 @@ class Node {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Node node = (Node) o;
-        return Objects.equals(posx, node.posx) &&
-                Objects.equals(posy, node.posy);
+        FinderNode finderNode = (FinderNode) o;
+        return Objects.equals(posx, finderNode.posx) &&
+                Objects.equals(posy, finderNode.posy);
     }
 
     @Override
