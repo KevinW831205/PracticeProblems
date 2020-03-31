@@ -19,6 +19,14 @@ public class Finder {
         return myFinder.findPath();
     }
 
+    public static int pathFinderShortest(String maze) {
+        System.out.println(maze);
+
+
+
+        return -1;
+    }
+
 
 }
 
