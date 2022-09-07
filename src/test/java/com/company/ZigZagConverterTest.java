@@ -17,10 +17,15 @@ public class ZigZagConverterTest {
     }
     @Test
     public void test2() {
-        ZigZagConverterTest("PAYPALISHIRING", "PINALSIGYAHRPI", 4);
+        ZigZagConverterTest("PINALSIGYAHRPI", "PAYPALISHIRING", 4);
     }
     @Test
     public void test3() {
         ZigZagConverterTest("A", "A", 1);
+    }
+
+    @Test
+    public void test4() {
+        ZigZagConverterTest("AB", "AB", 1);
     }
 }
