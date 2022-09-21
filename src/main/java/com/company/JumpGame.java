@@ -39,6 +39,32 @@ public class JumpGame {
         return -1;
     }
 
+    public boolean canJump(int[] nums) {
+        int currentIndex = 0;
+        while (currentIndex < nums.length) {
+            int maxReachIndex = currentIndex + nums[currentIndex];
+            if (maxReachIndex >= nums.length - 1) {
+                return true;
+            }
+            if (maxReachIndex <= currentIndex) {
+                return false;
+            }
+            for (int i = currentIndex; i < maxReachIndex; i++) {
+                int newMaxReach = i + nums[i];
+                if (newMaxReach > maxReachIndex) {
+                    maxReachIndex = newMaxReach;
+                    if (maxReachIndex >= nums.length -1) {
+                        return true;
+                    }
+                }
+            }
+            currentIndex = maxReachIndex;
+        }
+
+        return false;
+    }
+
+
 }
 
 
