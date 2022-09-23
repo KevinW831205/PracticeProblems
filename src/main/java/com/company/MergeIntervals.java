@@ -7,9 +7,12 @@ import java.util.List;
 
 public class MergeIntervals {
     public static void main(String[] args) {
-        int[][] in = {{1,3}, {2,6}, {8,10}, {15,18}, {1,2}};
+//        int[][] in = {{1,3}, {2,6}, {8,10}, {15,18}, {1,2}};
+//
+//        int[][] res = new MergeIntervals().merge(in);
+        int[][] in = {{1,2}, {3,5}, {6,7}, {8,10}, {12, 16}};
 
-        int[][] res = new MergeIntervals().merge(in);
+        int[][] res = new MergeIntervals().insert(in, new int[]{4,8});
         for (int[] interval : res) {
             System.out.println(Arrays.toString(interval));
         }
@@ -35,8 +38,16 @@ public class MergeIntervals {
         }
         mergedInterval.add(new int[] {left, right});
 
-        mergedInterval.toArray(new int[][]{new int[0]});
-
         return mergedInterval.toArray(new int[][]{new int[0]});
+    }
+
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        List<int[]> addedIntervals = new ArrayList<>();
+        addedIntervals.addAll(Arrays.asList(intervals));
+        addedIntervals.add(newInterval);
+        int[][] addedArr = addedIntervals.toArray(new int[][]{new int[0]});
+
+
+        return merge(addedArr);
     }
 }
