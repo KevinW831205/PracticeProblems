@@ -26,4 +26,22 @@ public class UniquePathsTest {
     public void test3() {
         uniquePathTest(193536720, 23, 12);
     }
+
+    public void uniquePathTestWithObstacle(int expected, int[][] input) {
+        int actual = new UniquePaths().uniquePathsWithObstacles(input);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testObstacle1() {
+        uniquePathTestWithObstacle(2, new int[][]{{0,0,0}, {0,1,0}, {0,0,0}});
+    }
+
+    @Test
+    public void testObstacle2() {
+        uniquePathTestWithObstacle(7, new int[][]{{0,0,0,0}, {0,1,0,0}, {0,0,0,0},{0,0,1,0}, {0,0,0,0}});
+    }
+
+
 }
